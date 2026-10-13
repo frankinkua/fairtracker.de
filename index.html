@@ -1,1 +1,154 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Work in Progress</title></head><body style="font-family:system-ui;display:grid;place-items:center;min-height:100vh;margin:0"><h1>fairtracker.de</h1></body></html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FairTracker - Wie fair ist dein Einkauf?</title>
+  <meta name="description" content="Überprüfe mit dem FairTracker die Nachhaltigkeit und Fairness deiner Produkte. Berücksichtigt Löhne, Materialien, Reparierbarkeit, Transport und Verpackung.">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fairtracker.de/">
+  <meta property="og:title" content="FairTracker - Wie fair ist dein Einkauf?">
+  <meta property="og:description" content="Überprüfe mit dem FairTracker die Nachhaltigkeit und Fairness deiner Produkte. Ein einfacher Check für bewusstes Konsumieren.">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>FairTracker</h1>
+      <p>Bewerte deinen geplanten Einkauf nach sozialen und ökologischen Kriterien. Kreuze an, was auf das Produkt zutrifft, und sieh dir deinen Fairness-Score an.</p>
+    </header>
+
+    <main>
+      <!-- DIAL PLACEHOLDER -->
+      <section id="dial-section" class="card dial-container" aria-live="polite">
+          <svg class="dial-svg" viewBox="0 0 100 100" aria-hidden="true">
+            <circle class="dial-bg" cx="50" cy="50" r="45"></circle>
+            <circle class="dial-progress" id="dial-progress-circle" cx="50" cy="50" r="45" transform="rotate(-90 50 50)"></circle>
+            <text class="dial-text" id="dial-score-text" x="50" y="50">0%</text>
+          </svg>
+          <p id="dial-message" style="margin-top: var(--spacing-md); font-weight: 600;">Lass uns starten!</p>
+      </section>
+
+      <section id="checklist-section" aria-labelledby="checklist-title">
+        <h2 id="checklist-title">Der Fairness-Check</h2>
+        <ul class="checklist" id="fairness-checklist">
+          <li>
+            <label class="checklist-item">
+              <input type="checkbox" class="fairness-checkbox" value="20" data-message="Guter Start!">
+              <div class="checkbox-custom" aria-hidden="true"></div>
+              <div class="checklist-text">
+                <h4>Faire Löhne garantiert</h4>
+                <p>Hersteller zahlt existenzsichernde Löhne (z.B. durch Siegel wie Fairtrade bestätigt).</p>
+              </div>
+            </label>
+          </li>
+          <li>
+            <label class="checklist-item">
+              <input type="checkbox" class="fairness-checkbox" value="20" data-message="Materialien check!">
+              <div class="checkbox-custom" aria-hidden="true"></div>
+              <div class="checklist-text">
+                <h4>Nachhaltige Materialien</h4>
+                <p>Bio-Rohstoffe, recycelte Materialien oder ressourcenschonende Produktion.</p>
+              </div>
+            </label>
+          </li>
+          <li>
+            <label class="checklist-item">
+              <input type="checkbox" class="fairness-checkbox" value="20" data-message="Langlebigkeit ist wichtig.">
+              <div class="checkbox-custom" aria-hidden="true"></div>
+              <div class="checklist-text">
+                <h4>Reparierbarkeit & Langlebigkeit</h4>
+                <p>Ersatzteile sind verfügbar, Produkt ist nicht für schnellen Verschleiß gebaut.</p>
+              </div>
+            </label>
+          </li>
+          <li>
+            <label class="checklist-item">
+              <input type="checkbox" class="fairness-checkbox" value="20" data-message="Klima freut sich!">
+              <div class="checkbox-custom" aria-hidden="true"></div>
+              <div class="checklist-text">
+                <h4>Kurze Transportwege</h4>
+                <p>Regionale oder europäische Produktion, keine unnötige Flugfracht.</p>
+              </div>
+            </label>
+          </li>
+          <li>
+            <label class="checklist-item">
+              <input type="checkbox" class="fairness-checkbox" value="20" data-message="Weniger Müll!">
+              <div class="checkbox-custom" aria-hidden="true"></div>
+              <div class="checklist-text">
+                <h4>Verpackung minimiert</h4>
+                <p>Plastikfrei, recycelbar oder ganz ohne Verpackung verkauft.</p>
+              </div>
+            </label>
+          </li>
+        </ul>
+      </section>
+
+      <section id="criteria-explanation" aria-labelledby="criteria-title">
+        <h2 id="criteria-title">Warum diese Kriterien?</h2>
+        <div class="card">
+          <h3>Faire Löhne & Arbeitsbedingungen</h3>
+          <p>Ein Produkt ist nur dann fair, wenn die Menschen, die es herstellen, von ihrer Arbeit leben können. Das bedeutet: existenzsichernde Löhne, keine Kinder- oder Zwangsarbeit und sichere Arbeitsbedingungen entlang der gesamten Lieferkette.</p>
+
+          <h3>Nachhaltige Materialien</h3>
+          <p>Die Wahl der Rohstoffe hat großen Einfluss auf die Umwelt. Bevorzugt werden sollten Materialien aus biologischem Anbau (z.B. Bio-Baumwolle), recycelte Stoffe oder schnell nachwachsende Ressourcen, die ohne schädliche Pestizide angebaut werden.</p>
+
+          <h3>Langlebigkeit & Reparierbarkeit</h3>
+          <p>Das nachhaltigste Produkt ist das, welches lange genutzt wird. Produkte sollten so designt sein, dass sie nicht schnell kaputtgehen und im Falle eines Defekts einfach und kostengünstig repariert werden können (z.B. durch verfügbare Ersatzteile).</p>
+
+          <h3>Kurze Transportwege</h3>
+          <p>Lokale oder regionale Produktion reduziert den CO2-Ausstoß, der durch den Transport entsteht, erheblich. Je kürzer der Weg vom Hersteller zum Verbraucher, desto besser für unser Klima.</p>
+
+          <h3>Umweltfreundliche Verpackung</h3>
+          <p>Verpackungen sollten auf ein Minimum reduziert sein. Wenn sie nötig sind, sollten sie aus recycelten oder leicht recycelbaren Materialien bestehen und kein unnötiges Plastik enthalten.</p>
+        </div>
+      </section>
+
+      <section id="labels-guide" aria-labelledby="labels-title">
+        <h2 id="labels-title">Wichtige Siegel im Überblick</h2>
+        <p>Siegel können helfen, faire und nachhaltige Produkte zu erkennen. Doch was bedeuten sie genau?</p>
+
+        <div class="label-grid">
+          <div class="card">
+            <span class="badge">Fairtrade</span>
+            <h3>Fairtrade</h3>
+            <p>Fokussiert sich stark auf den globalen Süden. Garantiert den Produzenten Mindestpreise, die sie vor Preisschwankungen auf dem Weltmarkt schützen, sowie eine zusätzliche Prämie für Gemeinschaftsprojekte. Strenge Vorgaben gegen Kinderarbeit und für sichere Arbeitsbedingungen.</p>
+          </div>
+
+          <div class="card">
+            <span class="badge">Textilien</span>
+            <h3>GOTS (Global Organic Textile Standard)</h3>
+            <p>Der weltweit führende Standard für die Verarbeitung von Textilien aus biologisch erzeugten Naturfasern. Er definiert umwelttechnische Anforderungen entlang der gesamten textilen Produktionskette (z.B. Verbot giftiger Chemikalien) und fordert gleichzeitig die Einhaltung von Sozialkriterien.</p>
+          </div>
+
+          <div class="card">
+            <span class="badge">Umwelt</span>
+            <h3>Blauer Engel</h3>
+            <p>Das Umweltzeichen der Bundesregierung. Es zeichnet Produkte und Dienstleistungen aus, die in einer ganzheitlichen Betrachtung umweltfreundlicher sind als vergleichbare konventionelle Produkte. Es betrachtet unter anderem Langlebigkeit, Materialeinsatz und Energieverbrauch.</p>
+          </div>
+
+          <div class="card">
+            <span class="badge">Europa</span>
+            <h3>EU Ecolabel</h3>
+            <p>Das in allen Mitgliedstaaten der Europäischen Union anerkannte EU-Umweltzeichen. Es kennzeichnet Produkte, die geringere Umweltauswirkungen haben als vergleichbare Produkte. Die Kriterien umfassen den gesamten Lebenszyklus – von der Rohstoffgewinnung über die Produktion bis zur Entsorgung.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 FairTracker. Ein Projekt für mehr Transparenz beim Einkauf.</p>
+      <nav aria-label="Footernavigation">
+        <a href="impressum.html">Impressum</a> |
+        <a href="datenschutz.html">Datenschutz</a>
+      </nav>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
