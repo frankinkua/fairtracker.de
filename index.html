@@ -17,132 +17,208 @@
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>FairTracker</h1>
-      <p>Bewerte deinen geplanten Einkauf nach sozialen und ökologischen Kriterien. Kreuze an, was auf das Produkt zutrifft, und sieh dir deinen Fairness-Score an.</p>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/" class="logo">FairTracker</a>
+        <nav aria-label="Hauptnavigation">
+          <ul class="nav-links">
+            <li><a href="#checker-tool">Zum Check</a></li>
+            <li><a href="#labels-guide">Siegel-Guide</a></li>
+            <li><a href="#greenwashing">Greenwashing</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
-      <!-- DIAL PLACEHOLDER -->
-      <section id="dial-section" class="card dial-container" aria-live="polite">
-          <svg class="dial-svg" viewBox="0 0 100 100" aria-hidden="true">
-            <circle class="dial-bg" cx="50" cy="50" r="45"></circle>
-            <circle class="dial-progress" id="dial-progress-circle" cx="50" cy="50" r="45" transform="rotate(-90 50 50)"></circle>
-            <text class="dial-text" id="dial-score-text" x="50" y="50">0%</text>
-          </svg>
-          <p id="dial-message" style="margin-top: var(--spacing-md); font-weight: 600;">Lass uns starten!</p>
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Wie fair ist dein nächster Einkauf?</h1>
+          <p>Finde in wenigen Sekunden heraus, ob dein gewünschtes Produkt wirklich nachhaltig ist. Unser unabhängiger Check bewertet Löhne, Materialien und Umwelteinflüsse.</p>
+          <a href="#checker-tool" class="button cta-button">Jetzt Produkt checken</a>
+        </div>
       </section>
 
-      <section id="checklist-section" aria-labelledby="checklist-title">
-        <h2 id="checklist-title">Der Fairness-Check</h2>
-        <ul class="checklist" id="fairness-checklist">
-          <li>
-            <label class="checklist-item">
-              <input type="checkbox" class="fairness-checkbox" value="20" data-message="Guter Start!">
-              <div class="checkbox-custom" aria-hidden="true"></div>
-              <div class="checklist-text">
-                <h4>Faire Löhne garantiert</h4>
-                <p>Hersteller zahlt existenzsichernde Löhne (z.B. durch Siegel wie Fairtrade bestätigt).</p>
-              </div>
-            </label>
-          </li>
-          <li>
-            <label class="checklist-item">
-              <input type="checkbox" class="fairness-checkbox" value="20" data-message="Materialien check!">
-              <div class="checkbox-custom" aria-hidden="true"></div>
-              <div class="checklist-text">
-                <h4>Nachhaltige Materialien</h4>
-                <p>Bio-Rohstoffe, recycelte Materialien oder ressourcenschonende Produktion.</p>
-              </div>
-            </label>
-          </li>
-          <li>
-            <label class="checklist-item">
-              <input type="checkbox" class="fairness-checkbox" value="20" data-message="Langlebigkeit ist wichtig.">
-              <div class="checkbox-custom" aria-hidden="true"></div>
-              <div class="checklist-text">
-                <h4>Reparierbarkeit & Langlebigkeit</h4>
-                <p>Ersatzteile sind verfügbar, Produkt ist nicht für schnellen Verschleiß gebaut.</p>
-              </div>
-            </label>
-          </li>
-          <li>
-            <label class="checklist-item">
-              <input type="checkbox" class="fairness-checkbox" value="20" data-message="Klima freut sich!">
-              <div class="checkbox-custom" aria-hidden="true"></div>
-              <div class="checklist-text">
-                <h4>Kurze Transportwege</h4>
-                <p>Regionale oder europäische Produktion, keine unnötige Flugfracht.</p>
-              </div>
-            </label>
-          </li>
-          <li>
-            <label class="checklist-item">
-              <input type="checkbox" class="fairness-checkbox" value="20" data-message="Weniger Müll!">
-              <div class="checkbox-custom" aria-hidden="true"></div>
-              <div class="checklist-text">
-                <h4>Verpackung minimiert</h4>
-                <p>Plastikfrei, recycelbar oder ganz ohne Verpackung verkauft.</p>
-              </div>
-            </label>
-          </li>
-        </ul>
+      <section id="checker-tool" aria-labelledby="checklist-title">
+        <div class="checker-layout">
+          <div class="checker-questions card">
+            <h2 id="checklist-title">Der Fairness-Check</h2>
+            <p>Beantworte die folgenden Fragen zu dem Produkt, das du kaufen möchtest.</p>
+            <ul class="checklist" id="fairness-checklist">
+              <li class="checklist-item" data-weight="30" data-id="lohn">
+                <div class="checklist-text">
+                  <h4>Faire Löhne garantiert</h4>
+                  <p>Zahlt der Hersteller existenzsichernde Löhne (z.B. durch Siegel wie Fairtrade bestätigt)?</p>
+                </div>
+                <div class="radio-group">
+                  <label><input type="radio" name="lohn" value="yes"> Ja</label>
+                  <label><input type="radio" name="lohn" value="no"> Nein</label>
+                  <label><input type="radio" name="lohn" value="unknown" checked> Weiß nicht</label>
+                </div>
+              </li>
+              <li class="checklist-item" data-weight="25" data-id="material">
+                <div class="checklist-text">
+                  <h4>Nachhaltige Materialien</h4>
+                  <p>Besteht das Produkt aus Bio-Rohstoffen, recycelten Materialien oder aus ressourcenschonender Produktion?</p>
+                </div>
+                <div class="radio-group">
+                  <label><input type="radio" name="material" value="yes"> Ja</label>
+                  <label><input type="radio" name="material" value="no"> Nein</label>
+                  <label><input type="radio" name="material" value="unknown" checked> Weiß nicht</label>
+                </div>
+              </li>
+              <li class="checklist-item" data-weight="20" data-id="repair">
+                <div class="checklist-text">
+                  <h4>Reparierbarkeit & Langlebigkeit</h4>
+                  <p>Sind Ersatzteile verfügbar? Ist das Produkt für eine lange Lebensdauer gebaut (kein Fast Fashion / geplanter Verschleiß)?</p>
+                </div>
+                <div class="radio-group">
+                  <label><input type="radio" name="repair" value="yes"> Ja</label>
+                  <label><input type="radio" name="repair" value="no"> Nein</label>
+                  <label><input type="radio" name="repair" value="unknown" checked> Weiß nicht</label>
+                </div>
+              </li>
+              <li class="checklist-item" data-weight="15" data-id="transport">
+                <div class="checklist-text">
+                  <h4>Kurze Transportwege</h4>
+                  <p>Erfolgt die Produktion regional oder in Europa, sodass unnötige Flugfracht vermieden wird?</p>
+                </div>
+                <div class="radio-group">
+                  <label><input type="radio" name="transport" value="yes"> Ja</label>
+                  <label><input type="radio" name="transport" value="no"> Nein</label>
+                  <label><input type="radio" name="transport" value="unknown" checked> Weiß nicht</label>
+                </div>
+              </li>
+              <li class="checklist-item" data-weight="10" data-id="packaging">
+                <div class="checklist-text">
+                  <h4>Verpackung minimiert</h4>
+                  <p>Ist das Produkt plastikfrei, recycelbar verpackt oder wird es komplett unverpackt verkauft?</p>
+                </div>
+                <div class="radio-group">
+                  <label><input type="radio" name="packaging" value="yes"> Ja</label>
+                  <label><input type="radio" name="packaging" value="no"> Nein</label>
+                  <label><input type="radio" name="packaging" value="unknown" checked> Weiß nicht</label>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="checker-result card">
+            <div id="dial-section" class="dial-container" aria-live="polite">
+                <svg class="dial-svg" viewBox="0 0 100 100" aria-hidden="true">
+                  <circle class="dial-bg" cx="50" cy="50" r="45"></circle>
+                  <circle class="dial-progress" id="dial-progress-circle" cx="50" cy="50" r="45" transform="rotate(-90 50 50)"></circle>
+                  <text class="dial-text" id="dial-score-text" x="50" y="50">0</text>
+                </svg>
+                <h3 id="dial-verdict" class="verdict-title">Bisher keine Bewertung</h3>
+                <p id="dial-message">Beantworte die Fragen links, um ein Ergebnis zu erhalten.</p>
+                <div id="dynamic-tips" class="dynamic-tips" aria-live="polite">
+                  <!-- Tips will be injected here by JS -->
+                </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="criteria-explanation" aria-labelledby="criteria-title">
         <h2 id="criteria-title">Warum diese Kriterien?</h2>
-        <div class="card">
+        <div class="card content-card">
           <h3>Faire Löhne & Arbeitsbedingungen</h3>
-          <p>Ein Produkt ist nur dann fair, wenn die Menschen, die es herstellen, von ihrer Arbeit leben können. Das bedeutet: existenzsichernde Löhne, keine Kinder- oder Zwangsarbeit und sichere Arbeitsbedingungen entlang der gesamten Lieferkette.</p>
+          <p>Ein Produkt ist nur dann fair, wenn die Menschen, die es herstellen, von ihrer Arbeit leben können. Das bedeutet: existenzsichernde Löhne, keine Kinder- oder Zwangsarbeit und sichere Arbeitsbedingungen entlang der gesamten Lieferkette. Oft reicht der gesetzliche Mindestlohn in Produktionsländern nicht aus, um grundlegende Bedürfnisse wie Nahrung, Kleidung, Wohnen und Bildung zu decken (Living Wage).</p>
 
           <h3>Nachhaltige Materialien</h3>
-          <p>Die Wahl der Rohstoffe hat großen Einfluss auf die Umwelt. Bevorzugt werden sollten Materialien aus biologischem Anbau (z.B. Bio-Baumwolle), recycelte Stoffe oder schnell nachwachsende Ressourcen, die ohne schädliche Pestizide angebaut werden.</p>
+          <p>Die Wahl der Rohstoffe hat großen Einfluss auf unsere Umwelt. Bevorzugt werden sollten Materialien aus kontrolliert biologischem Anbau (wie Bio-Baumwolle), recycelte Stoffe oder schnell nachwachsende Ressourcen, die ohne schädliche Pestizide und Düngemittel angebaut werden. Auch der Wasserverbrauch bei der Produktion spielt eine zentrale Rolle.</p>
 
           <h3>Langlebigkeit & Reparierbarkeit</h3>
-          <p>Das nachhaltigste Produkt ist das, welches lange genutzt wird. Produkte sollten so designt sein, dass sie nicht schnell kaputtgehen und im Falle eines Defekts einfach und kostengünstig repariert werden können (z.B. durch verfügbare Ersatzteile).</p>
+          <p>Das nachhaltigste Produkt ist das, welches lange genutzt wird. Produkte sollten so designt sein, dass sie nicht schnell kaputtgehen und im Falle eines Defekts einfach und kostengünstig repariert werden können (z.B. durch modulare Bauweise und langjährige Verfügbarkeit von Ersatzteilen). Fast Fashion und Wegwerfartikel belasten Ressourcen und Klima enorm.</p>
 
           <h3>Kurze Transportwege</h3>
-          <p>Lokale oder regionale Produktion reduziert den CO2-Ausstoß, der durch den Transport entsteht, erheblich. Je kürzer der Weg vom Hersteller zum Verbraucher, desto besser für unser Klima.</p>
+          <p>Lokale oder regionale Produktion reduziert den CO2-Ausstoß, der durch den Transport entsteht, erheblich. Je kürzer der Weg vom Hersteller zum Verbraucher, desto besser für unser Klima. Besonders Flugfracht bei schnell verderblichen oder eilig benötigten Waren (z.B. Ultra Fast Fashion) hat eine katastrophale Klimabilanz.</p>
 
           <h3>Umweltfreundliche Verpackung</h3>
-          <p>Verpackungen sollten auf ein Minimum reduziert sein. Wenn sie nötig sind, sollten sie aus recycelten oder leicht recycelbaren Materialien bestehen und kein unnötiges Plastik enthalten.</p>
+          <p>Verpackungen sollten auf das absolut notwendige Minimum reduziert sein. Wenn sie zwingend nötig sind, sollten sie aus recycelten oder leicht recycelbaren Monomaterialien bestehen und kein unnötiges Neu-Plastik enthalten. Der Trend zu Mehrwegsystemen ist ebenfalls ein starkes Plus.</p>
         </div>
       </section>
 
       <section id="labels-guide" aria-labelledby="labels-title">
         <h2 id="labels-title">Wichtige Siegel im Überblick</h2>
-        <p>Siegel können helfen, faire und nachhaltige Produkte zu erkennen. Doch was bedeuten sie genau?</p>
+        <p>Siegel können helfen, faire und nachhaltige Produkte zu erkennen. Doch was bedeuten sie genau und was decken sie oft nicht ab?</p>
 
         <div class="label-grid">
-          <div class="card">
+          <div class="card label-card">
             <span class="badge">Fairtrade</span>
             <h3>Fairtrade</h3>
-            <p>Fokussiert sich stark auf den globalen Süden. Garantiert den Produzenten Mindestpreise, die sie vor Preisschwankungen auf dem Weltmarkt schützen, sowie eine zusätzliche Prämie für Gemeinschaftsprojekte. Strenge Vorgaben gegen Kinderarbeit und für sichere Arbeitsbedingungen.</p>
+            <p>Fokussiert sich stark auf den globalen Süden (Kaffee, Kakao, Baumwolle). Garantiert den Produzenten Mindestpreise, die sie vor Preisschwankungen auf dem Weltmarkt schützen, sowie eine zusätzliche Prämie für Gemeinschaftsprojekte. Strenge Vorgaben gegen Kinderarbeit.</p>
+            <div class="limitation"><strong>Was fehlt oft?</strong> Fairtrade-Baumwolle bedeutet nicht zwingend, dass die Näherin in der Textilfabrik einen existenzsichernden Lohn erhält, sondern sichert zunächst den Rohstoffbauern ab.</div>
           </div>
 
-          <div class="card">
+          <div class="card label-card">
             <span class="badge">Textilien</span>
             <h3>GOTS (Global Organic Textile Standard)</h3>
-            <p>Der weltweit führende Standard für die Verarbeitung von Textilien aus biologisch erzeugten Naturfasern. Er definiert umwelttechnische Anforderungen entlang der gesamten textilen Produktionskette (z.B. Verbot giftiger Chemikalien) und fordert gleichzeitig die Einhaltung von Sozialkriterien.</p>
+            <p>Der weltweit führende Standard für die Verarbeitung von Textilien aus biologisch erzeugten Naturfasern. Er definiert umwelttechnische Anforderungen (Verbot giftiger Chemikalien) und fordert gleichzeitig die Einhaltung von Sozialkriterien der ILO (Internationale Arbeitsorganisation).</p>
+            <div class="limitation"><strong>Was fehlt oft?</strong> GOTS garantiert zwar Mindestsozialstandards, aber noch nicht immer die tatsächliche Auszahlung eines echten Existenzlohns, der über dem gesetzlichen Mindestlohn liegt.</div>
           </div>
 
-          <div class="card">
+          <div class="card label-card">
+            <span class="badge">Textilien</span>
+            <h3>Grüner Knopf</h3>
+            <p>Ein staatliches Siegel des deutschen Bundesentwicklungsministeriums für sozial und ökologisch nachhaltig hergestellte Textilien. Das Besondere: Es prüft nicht nur das Produkt, sondern das gesamte Unternehmen auf seine Sorgfaltspflichten.</p>
+            <div class="limitation"><strong>Was fehlt oft?</strong> Der Fokus liegt noch stark auf den finalen Produktionsschritten (Zuschneiden, Nähen, Färben). Die Rohstoffgewinnung (Baumwollfeld) wird in der aktuellen Version noch nicht vollumfänglich geprüft.</div>
+          </div>
+
+          <div class="card label-card">
             <span class="badge">Umwelt</span>
             <h3>Blauer Engel</h3>
-            <p>Das Umweltzeichen der Bundesregierung. Es zeichnet Produkte und Dienstleistungen aus, die in einer ganzheitlichen Betrachtung umweltfreundlicher sind als vergleichbare konventionelle Produkte. Es betrachtet unter anderem Langlebigkeit, Materialeinsatz und Energieverbrauch.</p>
-          </div>
-
-          <div class="card">
-            <span class="badge">Europa</span>
-            <h3>EU Ecolabel</h3>
-            <p>Das in allen Mitgliedstaaten der Europäischen Union anerkannte EU-Umweltzeichen. Es kennzeichnet Produkte, die geringere Umweltauswirkungen haben als vergleichbare Produkte. Die Kriterien umfassen den gesamten Lebenszyklus – von der Rohstoffgewinnung über die Produktion bis zur Entsorgung.</p>
+            <p>Das Umweltzeichen der Bundesregierung. Es zeichnet Produkte aus, die umweltfreundlicher sind als vergleichbare konventionelle Produkte, betrachtet Langlebigkeit, Materialeinsatz und Energieverbrauch.</p>
+            <div class="limitation"><strong>Was fehlt oft?</strong> Es ist ein reines Umweltzeichen. Soziale Kriterien wie Arbeitsbedingungen in den Fabriken oder faire Löhne spielen bei der Vergabe so gut wie keine Rolle.</div>
           </div>
         </div>
       </section>
+
+      <section id="legislation" aria-labelledby="legislation-title">
+        <h2 id="legislation-title">Das EU-Lieferkettengesetz (CSDDD)</h2>
+        <div class="card content-card">
+          <p>Lange Zeit war nachhaltiges Handeln für Unternehmen freiwillig. Mit dem neuen EU-Lieferkettengesetz (Corporate Sustainability Due Diligence Directive, CSDDD) ändert sich das. Große Unternehmen werden künftig gesetzlich verpflichtet, Menschenrechte und Umweltstandards entlang ihrer globalen Wertschöpfungsketten zu achten.</p>
+          <p>Sie müssen Risiken wie Kinderarbeit, Ausbeutung oder Umweltverschmutzung bei ihren Zulieferern ermitteln, verhindern und beheben. Tun sie dies nicht, drohen empfindliche Strafen und sie können für Schäden zivilrechtlich haftbar gemacht werden. Dies ist ein gewaltiger Schritt, um Fairness vom reinen Marketing-Argument zur gesetzlichen Pflicht zu machen.</p>
+        </div>
+      </section>
+
+      <section id="greenwashing" aria-labelledby="greenwashing-title">
+        <h2 id="greenwashing-title">Wie erkenne ich Greenwashing?</h2>
+        <div class="card content-card">
+          <p>Greenwashing bedeutet, dass ein Produkt oder Unternehmen sich umweltfreundlicher oder fairer darstellt, als es tatsächlich ist. Achte auf diese Warnsignale:</p>
+          <ul class="styled-list">
+            <li><strong>Schwammige Begriffe:</strong> Wörter wie "natürlich", "grün", "umweltfreundlich" oder "conscious" sind nicht gesetzlich geschützt und bedeuten oft gar nichts.</li>
+            <li><strong>Fehlende Beweise:</strong> Es gibt Behauptungen zur Nachhaltigkeit, aber keine unabhängigen, nachprüfbaren Siegel (wie GOTS oder Fairtrade), die das belegen. Eigene Unternehmens-Logos, die aussehen wie Siegel, sind wertlos.</li>
+            <li><strong>Irrelevante Aussagen:</strong> Ein Produkt wird z.B. als "FCKW-frei" beworben, obwohl FCKW gesetzlich längst verboten ist. Das ist kein Pluspunkt, sondern Standard.</li>
+            <li><strong>Versteckte Kompromisse (Hidden Trade-off):</strong> Ein Produkt wird als recycelt beworben, wurde aber unter katastrophalen Arbeitsbedingungen oder mit enormem Energieaufwand hergestellt.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Häufig gestellte Fragen (FAQ)</h2>
+        <div class="card content-card faq-section">
+          <details>
+            <summary>Speichert der FairTracker meine Daten?</summary>
+            <p>Nein. Der FairTracker funktioniert zu 100% lokal in deinem Browser. Es gibt keine Datenbank, keine Server-Auswertung, keine Cookies und keine Tracker. Deine Eingaben bleiben nur bei dir.</p>
+          </details>
+          <details>
+            <summary>Kann ich wirklich 100% fair einkaufen?</summary>
+            <p>Ein 100% perfektes Produkt gibt es fast nicht, da jede Produktion Ressourcen verbraucht. Es geht vielmehr darum, die <em>bessere</em> Wahl zu treffen, Kompromisse bewusst einzugehen und den Konsum insgesamt zu reduzieren.</p>
+          </details>
+          <details>
+            <summary>Warum sind faire Produkte oft teurer?</summary>
+            <p>Sie sind nicht unbedingt teurer, sondern konventionelle Produkte sind oft unnatürlich billig. Bei extrem billigen Produkten zahlen meist andere den Preis – durch Ausbeutung von Mensch und Natur. Faire Produkte bilden die wahren Kosten (Umweltschutz, existenzsichernde Löhne) realistischer ab.</p>
+          </details>
+        </div>
+      </section>
+
     </main>
 
     <footer>
-      <p>&copy; 2024 FairTracker. Ein Projekt für mehr Transparenz beim Einkauf.</p>
+      <p>&copy; 2026 FairTracker. Ein Projekt für mehr Transparenz beim Einkauf.</p>
       <nav aria-label="Footernavigation">
         <a href="impressum.html">Impressum</a> |
         <a href="datenschutz.html">Datenschutz</a>
